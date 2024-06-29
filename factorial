@@ -1,0 +1,16 @@
+function factorial($n) {
+    if ($n < 0) {
+        throw new InvalidArgumentException("Input must be a non-negative integer.");
+    }
+    if ($n  == 0 || $n === 1) {
+        return 1;
+    }
+    return $n * factorial($n - 1);
+}
+
+try {
+    echo factorial(5); // Outputs: 120
+    echo factorial(0); // Outputs: 1
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage();
+}
